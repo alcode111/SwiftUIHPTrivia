@@ -25,7 +25,7 @@ struct ContentView: View {
                             geo.size.width / 1.1 :
                             -geo.size.width / 1.1)
                     .onAppear {
-                        withAnimation(.linear(duration: 60)) {
+                        withAnimation(.linear(duration: 60).repeatForever()) {
                             moveBackgroundImage.toggle()
                         }
                     }
