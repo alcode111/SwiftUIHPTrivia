@@ -20,6 +20,7 @@
 		EC98FE732BE7939800998FD6 /* magic-in-the-air.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC98FE6B2BE7939800998FD6 /* magic-in-the-air.mp3 */; };
 		EC98FE742BE7939800998FD6 /* magic-wand.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC98FE6C2BE7939800998FD6 /* magic-wand.mp3 */; };
 		EC98FE752BE7939800998FD6 /* page-flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC98FE6D2BE7939800998FD6 /* page-flip.mp3 */; };
+		EC98FE772BE7AD0300998FD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98FE762BE7AD0300998FD6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		EC98FE6B2BE7939800998FD6 /* magic-in-the-air.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "magic-in-the-air.mp3"; path = "../../../../Downloads/HPResources/Audio/magic-in-the-air.mp3"; sourceTree = "<group>"; };
 		EC98FE6C2BE7939800998FD6 /* magic-wand.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "magic-wand.mp3"; path = "../../../../Downloads/HPResources/Audio/magic-wand.mp3"; sourceTree = "<group>"; };
 		EC98FE6D2BE7939800998FD6 /* page-flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "page-flip.mp3"; path = "../../../../Downloads/HPResources/Audio/page-flip.mp3"; sourceTree = "<group>"; };
+		EC98FE762BE7AD0300998FD6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			children = (
 				EC98FE562BE78E9B00998FD6 /* SwiftUIHPTriviaApp.swift */,
 				EC98FE582BE78E9B00998FD6 /* ContentView.swift */,
+				EC98FE762BE7AD0300998FD6 /* Constants.swift */,
 				EC98FE642BE7935D00998FD6 /* trivia.json */,
 				EC98FE672BE7939800998FD6 /* deep-in-the-dell.mp3 */,
 				EC98FE662BE7939800998FD6 /* hiding-place-in-the-forest.mp3 */,
@@ -175,6 +178,7 @@
 			files = (
 				EC98FE592BE78E9B00998FD6 /* ContentView.swift in Sources */,
 				EC98FE572BE78E9B00998FD6 /* SwiftUIHPTriviaApp.swift in Sources */,
+				EC98FE772BE7AD0300998FD6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
