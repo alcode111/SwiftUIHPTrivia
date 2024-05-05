@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var scalePlayButton = false
+    @State private var moveBackgroundImage = false
+    
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -74,6 +78,12 @@ struct ContentView: View {
                                 .background(.brown)
                                 .cornerRadius(7)
                                 .shadow(radius: 5)
+                        }
+                        .scaleEffect(scalePlayButton ? 1.2 : 1)
+                        .onAppear {
+                            withAnimation(.easeInOut(duration: 1.3).repeatForever()) {
+                                scalePlayButton.toggle()
+                            }
                         }
                         
                         Spacer()
