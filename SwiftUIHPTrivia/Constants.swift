@@ -20,3 +20,14 @@ struct infoBackgroundImage: View {
             .background(.brown)
     }
 }
+
+extension Button {
+    func doneButton() -> some View {
+        self
+            .font(.largeTitle)
+            .padding()
+            .buttonStyle(.borderedProminent)
+            .tint(.brown)
+            .foregroundStyle(.white)
+    }
+}
