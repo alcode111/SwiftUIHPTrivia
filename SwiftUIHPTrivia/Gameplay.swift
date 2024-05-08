@@ -140,14 +140,16 @@ struct Gameplay: View {
                     
                     Spacer()
                     
-                    Text("Answer 1")
-                        .minimumScaleFactor(0.5)
-                        .multilineTextAlignment(.center)
-                        .padding(10)
-                        .frame(width: geo.size.width / 2.15, height: 80)
-                        .background(.green.opacity(0.5))
-                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                        .scaleEffect(2)
+                    if correctAnswer {
+                        Text("Answer 1")
+                            .minimumScaleFactor(0.5)
+                            .multilineTextAlignment(.center)
+                            .padding(10)
+                            .frame(width: geo.size.width / 2.15, height: 80)
+                            .background(.green.opacity(0.5))
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                            .scaleEffect(2)
+                    }
                     
                     Spacer()
                     Spacer()
