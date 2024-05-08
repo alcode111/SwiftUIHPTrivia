@@ -10,6 +10,7 @@ import SwiftUI
 struct Gameplay: View {
     
     @State private var animateViewsIn = false
+    @State private var correctAnswer = false
     
     var body: some View {
         GeometryReader { geo in
@@ -111,12 +112,71 @@ struct Gameplay: View {
                 }
                 .frame(width: geo.size.width, height: geo.size.height)
                 .foregroundStyle(.white)
+                
+                // MARK: Celebration
+                VStack {
+                    Spacer()
+                    
+                    VStack {
+                        if correctAnswer {
+                            Text("5")
+                                .font(.largeTitle)
+                                .padding(.top, 50)
+                                .transition(.offset(y: -geo.size.height / 4))
+                        }
+                    }
+                    .animation(.easeInOut(duration: 1).delay(2), value: correctAnswer)
+                    
+                    Spacer()
+                    
+                    VStack {
+                        if correctAnswer {
+                            Text("Brilliant!")
+                                .font(.custom(Constants.hpFont, size: 100))
+                                .transition(.scale.combined(with: .offset(y: -geo.size.height / 2)))
+                        }
+                    }
+                    .animation(.easeInOut(duration: 1).delay(1), value: correctAnswer)
+                    
+                    Spacer()
+                    
+                    Text("Answer 1")
+                        .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
+                        .padding(10)
+                        .frame(width: geo.size.width / 2.15, height: 80)
+                        .background(.green.opacity(0.5))
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                        .scaleEffect(2)
+                    
+                    Spacer()
+                    Spacer()
+                    
+                    VStack {
+                        if correctAnswer {
+                            Button("Next Level>") {
+                                // TODO: Reset level for next question
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(.blue.opacity(0.5))
+                            .font(.largeTitle)
+                            .transition(.offset(y: geo.size.height / 3))
+                        }
+                    }
+                    .animation(.easeInOut(duration: 2.7).delay(2.7), value: correctAnswer)
+                    
+                    Spacer()
+                    Spacer()
+                    
+                }
+                .foregroundStyle(.white)
             }
             .frame(width: geo.size.width, height: geo.size.height)
         }
         .ignoresSafeArea()
         .onAppear {
-            animateViewsIn = true
+            //            animateViewsIn = true
+            correctAnswer = true
         }
     }
 }
