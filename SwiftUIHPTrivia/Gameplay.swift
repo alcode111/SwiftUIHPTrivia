@@ -67,8 +67,10 @@ struct Gameplay: View {
                                     .padding(.leading, 20)
                                     .transition(.offset(x: -geo.size.width / 2))
                                     .onAppear {
-                                        withAnimation(.easeInOut(duration: 0.1).repeatCount(9).delay(5).repeatForever()) {
-                                            hintWiggle = true
+                                        Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
+                                            withAnimation(.easeInOut(duration: 0.1).repeatCount(9)) {
+                                                hintWiggle.toggle()
+                                            }
                                         }
                                     }
                             }
@@ -91,11 +93,6 @@ struct Gameplay: View {
                                     .padding()
                                     .padding(.trailing, 20)
                                     .transition(.offset(x: geo.size.width / 2))
-                                    .onAppear {
-                                        withAnimation(.easeInOut(duration: 0.1).repeatCount(9).delay(5).repeatForever()) {
-                                            hintWiggle = true
-                                        }
-                                    }
                             }
                         }
                         .animation(.easeOut(duration: 1.5).delay(2), value: animateViewsIn)
