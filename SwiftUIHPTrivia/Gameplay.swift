@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct Gameplay: View {
     
     @Environment(\.dismiss) private var dismiss
     @Namespace private var namespace
+    @State private var musicPlayer: AVAudioPlayer!
+    @State private var sfxPlayer: AVAudioPlayer!
     @State private var animateViewsIn = false
     @State private var correctAnswer = false
     @State private var hintWiggle = false
@@ -291,7 +294,21 @@ struct Gameplay: View {
         .ignoresSafeArea()
         .onAppear {
             animateViewsIn = true
+            
+//            playMusic()
         }
+    }
+    
+    private func playMusic() {
+        let songs = ["let-the-mystery-unfold", "spellcraft", "hiding-place-in-the-forest", "deep-in-the-dell",]
+        
+        let i = Int.random(in: 0...3)
+        
+        let sound = Bundle.main.path(forResource: songs[i], ofType: "mp3")
+        musicPlayer = try! AVAudioPlayer(contentsOf: URL(filePath: sound!))
+        musicPlayer.volume = 0.1
+        musicPlayer.numberOfLoops = -1
+        musicPlayer.play()
     }
 }
 
