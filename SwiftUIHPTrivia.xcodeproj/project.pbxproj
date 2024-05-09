@@ -10,6 +10,7 @@
 		841F60D72BEACD87008EFE36 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841F60D62BEACD87008EFE36 /* Gameplay.swift */; };
 		846C0A142BEA6F4A0006EEC3 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C0A132BEA6F4A0006EEC3 /* Instructions.swift */; };
 		846C0A162BEA8F3C0006EEC3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C0A152BEA8F3C0006EEC3 /* Settings.swift */; };
+		847D42982BED1F4C00ADE90F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D42972BED1F4C00ADE90F /* Store.swift */; };
 		EC98FE572BE78E9B00998FD6 /* SwiftUIHPTriviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98FE562BE78E9B00998FD6 /* SwiftUIHPTriviaApp.swift */; };
 		EC98FE592BE78E9B00998FD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98FE582BE78E9B00998FD6 /* ContentView.swift */; };
 		EC98FE5B2BE78E9B00998FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC98FE5A2BE78E9B00998FD6 /* Assets.xcassets */; };
@@ -30,6 +31,8 @@
 		841F60D62BEACD87008EFE36 /* Gameplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		846C0A132BEA6F4A0006EEC3 /* Instructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		846C0A152BEA8F3C0006EEC3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		847D42962BED1D4400ADE90F /* HPConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = HPConfig.storekit; sourceTree = "<group>"; };
+		847D42972BED1F4C00ADE90F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		EC98FE532BE78E9B00998FD6 /* SwiftUIHPTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIHPTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC98FE562BE78E9B00998FD6 /* SwiftUIHPTriviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHPTriviaApp.swift; sourceTree = "<group>"; };
 		EC98FE582BE78E9B00998FD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,7 +85,9 @@
 				841F60D62BEACD87008EFE36 /* Gameplay.swift */,
 				846C0A152BEA8F3C0006EEC3 /* Settings.swift */,
 				846C0A132BEA6F4A0006EEC3 /* Instructions.swift */,
+				847D42972BED1F4C00ADE90F /* Store.swift */,
 				EC98FE762BE7AD0300998FD6 /* Constants.swift */,
+				847D42962BED1D4400ADE90F /* HPConfig.storekit */,
 				EC98FE642BE7935D00998FD6 /* trivia.json */,
 				EC98FE672BE7939800998FD6 /* deep-in-the-dell.mp3 */,
 				EC98FE662BE7939800998FD6 /* hiding-place-in-the-forest.mp3 */,
@@ -185,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D42982BED1F4C00ADE90F /* Store.swift in Sources */,
 				EC98FE592BE78E9B00998FD6 /* ContentView.swift in Sources */,
 				841F60D72BEACD87008EFE36 /* Gameplay.swift in Sources */,
 				EC98FE572BE78E9B00998FD6 /* SwiftUIHPTriviaApp.swift in Sources */,

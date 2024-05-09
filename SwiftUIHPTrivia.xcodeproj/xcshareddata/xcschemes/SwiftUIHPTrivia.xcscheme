@@ -50,6 +50,9 @@
             ReferencedContainer = "container:SwiftUIHPTrivia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../SwiftUIHPTrivia/HPConfig.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
