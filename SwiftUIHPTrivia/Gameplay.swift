@@ -89,6 +89,8 @@ struct Gameplay: View {
                                         withAnimation(.easeOut(duration: 1)) {
                                             revealHint = true
                                         }
+                                        
+                                        playFlipSound()
                                     }
                                     .rotation3DEffect(.degrees(revealHint ? 1440 : 0), axis: (x: 0, y: 1, z: 0))
                                     .scaleEffect(revealHint ? 5 : 1)
@@ -129,6 +131,8 @@ struct Gameplay: View {
                                         withAnimation(.easeOut(duration: 1)) {
                                             revealBook = true
                                         }
+                                        
+                                        playFlipSound()
                                     }
                                     .rotation3DEffect(.degrees(revealBook ? 1440 : 0), axis: (x: 0, y: 1, z: 0))
                                     .scaleEffect(revealBook ? 5 : 1)
@@ -169,6 +173,7 @@ struct Gameplay: View {
                                                 .onTapGesture {
                                                     withAnimation(.easeOut(duration: 1)) {
                                                         correctAnswer = true
+                                                        playCorrectSound()
                                                     }
                                                 }
                                         }
@@ -190,6 +195,9 @@ struct Gameplay: View {
                                                 withAnimation(.easeOut(duration: 1)) {
                                                     wrongAnswersTapped.append(i)
                                                 }
+                                                
+                                                playWrongSound()
+                                                giveWrongFeedback()
                                             }
                                             .scaleEffect(wrongAnswersTapped.contains(i) ? 0.8 : 1)
                                             .disabled(correctAnswer || wrongAnswersTapped.contains(i))
@@ -309,6 +317,29 @@ struct Gameplay: View {
         musicPlayer.volume = 0.1
         musicPlayer.numberOfLoops = -1
         musicPlayer.play()
+    }
+    
+    private func playFlipSound() {
+        let sound = Bundle.main.path(forResource: "page-flip", ofType: "mp3")
+        sfxPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        sfxPlayer.play()
+    }
+    
+    private func playWrongSound() {
+        let sound = Bundle.main.path(forResource: "negative-beeps", ofType: "mp3")
+        sfxPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        sfxPlayer.play()
+    }
+    
+    private func playCorrectSound() {
+        let sound = Bundle.main.path(forResource: "magic-wand", ofType: "mp3")
+        sfxPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        sfxPlayer.play()
+    }
+    
+    private func giveWrongFeedback() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.error)
     }
 }
 
