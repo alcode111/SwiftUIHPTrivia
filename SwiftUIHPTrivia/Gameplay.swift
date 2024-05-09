@@ -58,7 +58,7 @@ struct Gameplay: View {
                                 .opacity(correctAnswer ? 0.1 : 1)
                         }
                     }
-                    .animation(.easeInOut(duration: 2), value: animateViewsIn)
+                    .animation(.easeInOut(duration: animateViewsIn ? 2 : 0), value: animateViewsIn)
                     
                     Spacer()
                     
@@ -104,7 +104,7 @@ struct Gameplay: View {
 
                             }
                         }
-                        .animation(.easeOut(duration: 1.5).delay(2), value: animateViewsIn)
+                        .animation(.easeOut(duration: animateViewsIn ? 1.5 : 0).delay(animateViewsIn ? 2 : 0), value: animateViewsIn)
                         
                         Spacer()
                         
@@ -143,7 +143,7 @@ struct Gameplay: View {
                                     .disabled(correctAnswer)
                             }
                         }
-                        .animation(.easeOut(duration: 1.5).delay(2), value: animateViewsIn)
+                        .animation(.easeOut(duration: animateViewsIn ? 1.5 : 0).delay(animateViewsIn ? 2 : 0), value: animateViewsIn)
                     }
                     .padding()
                     
@@ -171,7 +171,7 @@ struct Gameplay: View {
                                         }
                                     }
                                 }
-                                .animation(.easeOut(duration: 1).delay(1.5), value: animateViewsIn)
+                                .animation(.easeOut(duration: animateViewsIn ? 1 : 0).delay(animateViewsIn ? 1.5 : 0), value: animateViewsIn)
                             } else {
                                 VStack {
                                     if animateViewsIn {
@@ -193,7 +193,7 @@ struct Gameplay: View {
                                             .opacity(correctAnswer ? 0.1 : 1)
                                     }
                                 }
-                                .animation(.easeOut(duration: 1).delay(1.5), value: animateViewsIn)
+                                .animation(.easeOut(duration: animateViewsIn ? 1 : 0).delay(animateViewsIn ? 1.5 : 0), value: animateViewsIn)
                             }
                         }
                     }
@@ -234,7 +234,7 @@ struct Gameplay: View {
                                 .matchedGeometryEffect(id: "answer", in: namespace)
                         }
                     }
-                    .animation(.easeInOut(duration: 1).delay(1), value: correctAnswer)
+                    .animation(.easeInOut(duration: correctAnswer ? 1 : 0).delay(correctAnswer ? 1 : 0), value: correctAnswer)
                     
                     Spacer()
                     
@@ -278,7 +278,7 @@ struct Gameplay: View {
                             }
                         }
                     }
-                    .animation(.easeInOut(duration: 2.7).delay(2.7), value: correctAnswer)
+                    .animation(.easeInOut(duration: correctAnswer ? 2.7 : 0).delay(correctAnswer ? 2.7 : 0), value: correctAnswer)
                     
                     Spacer()
                     Spacer()
@@ -291,7 +291,6 @@ struct Gameplay: View {
         .ignoresSafeArea()
         .onAppear {
             animateViewsIn = true
-//            correctAnswer = true
         }
     }
 }
