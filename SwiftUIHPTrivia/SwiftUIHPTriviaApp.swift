@@ -16,6 +16,9 @@ struct SwiftUIHPTriviaApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(store)
+                .task {
+                    await store.loadProducts()
+                }
         }
     }
 }
