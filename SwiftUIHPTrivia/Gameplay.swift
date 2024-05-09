@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Gameplay: View {
     
+    @Environment(\.dismiss) private var dismiss
     @State private var animateViewsIn = false
     @State private var correctAnswer = false
     @State private var hintWiggle = false
@@ -27,7 +28,7 @@ struct Gameplay: View {
                     // MARK: Controls
                     HStack {
                         Button("End Game") {
-                            //TODO: End game
+                            dismiss()
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(.red.opacity(0.5))
