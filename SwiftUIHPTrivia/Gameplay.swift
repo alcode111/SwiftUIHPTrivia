@@ -10,6 +10,7 @@ import SwiftUI
 struct Gameplay: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Namespace private var namespace
     @State private var animateViewsIn = false
     @State private var correctAnswer = false
     @State private var hintWiggle = false
@@ -17,6 +18,8 @@ struct Gameplay: View {
     @State private var movePointsToScore = false
     @State private var revealHint = false
     @State private var revealBook = false
+    
+    let tempAnswers = [true, false, false, false]
     
     var body: some View {
         GeometryReader { geo in
@@ -139,19 +142,43 @@ struct Gameplay: View {
                     // MARK: Answers
                     LazyVGrid(columns: [GridItem(), GridItem()]) {
                         ForEach(1..<5) {i in
-                            VStack {
-                                if animateViewsIn {
-                                    Text(i == 3 ? "The boy who lived and got sent to his relatives house where he was treated pretty badly if I'm honest, but yeah." : "Answer \(i)")
-                                        .minimumScaleFactor(0.5)
-                                        .multilineTextAlignment(.center)
-                                        .padding(10)
-                                        .frame(width: geo.size.width / 2.15, height: 80)
-                                        .background(.green.opacity(0.5))
-                                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                                        .transition(.scale)
+                            if tempAnswers[i-1] {
+                                VStack {
+                                    if animateViewsIn {
+                                        if !correctAnswer {
+                                            Text("Answer \(i)")
+                                                .minimumScaleFactor(0.5)
+                                                .multilineTextAlignment(.center)
+                                                .padding(10)
+                                                .frame(width: geo.size.width / 2.15, height: 80)
+                                                .background(.green.opacity(0.5))
+                                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                                .transition(.asymmetric(insertion: .scale, removal: .scale(scale: 5).combined(with: .opacity.animation(.easeOut(duration: 0.5)))))
+                                                .matchedGeometryEffect(id: "answer", in: namespace)
+                                                .onTapGesture {
+                                                    withAnimation(.easeOut(duration: 1)) {
+                                                        correctAnswer = true
+                                                    }
+                                                }
+                                        }
+                                    }
                                 }
+                                .animation(.easeOut(duration: 1).delay(1.5), value: animateViewsIn)
+                            } else {
+                                VStack {
+                                    if animateViewsIn {
+                                        Text("Answer \(i)")
+                                            .minimumScaleFactor(0.5)
+                                            .multilineTextAlignment(.center)
+                                            .padding(10)
+                                            .frame(width: geo.size.width / 2.15, height: 80)
+                                            .background(.green.opacity(0.5))
+                                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                                            .transition(.scale)
+                                    }
+                                }
+                                .animation(.easeOut(duration: 1).delay(1.5), value: animateViewsIn)
                             }
-                            .animation(.easeOut(duration: 1).delay(1.5), value: animateViewsIn)
                         }
                     }
                     
@@ -188,6 +215,7 @@ struct Gameplay: View {
                             Text("Brilliant!")
                                 .font(.custom(Constants.hpFont, size: 100))
                                 .transition(.scale.combined(with: .offset(y: -geo.size.height / 2)))
+                                .matchedGeometryEffect(id: "answer", in: namespace)
                         }
                     }
                     .animation(.easeInOut(duration: 1).delay(1), value: correctAnswer)
