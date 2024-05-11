@@ -1,8 +1,8 @@
 # HP Trivia
 
 <img src="project-screenshot-1.png" alt="App Screenshots" width="800">
-<img src="project-screenshot-2.png" alt="App Screenshots" width="800">
-<img src="project-screenshot-3.png" alt="App Screenshots" width="800">
+<img src="project-screenshot-2-new.png" alt="App Screenshots" width="800">
+<img src="project-screenshot-3-new.png" alt="App Screenshots" width="800">
 
 
 ## Description
