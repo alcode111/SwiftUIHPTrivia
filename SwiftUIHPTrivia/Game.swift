@@ -81,6 +81,15 @@ class Game: ObservableObject {
         saveScores()
     }
     
+    func loadScores() {
+        do {
+            let data = try Data(contentsOf: savePath)
+            recentScores = try JSONDecoder().decode([Int].self, from: data)
+        } catch {
+            recentScores = [0, 0, 0]
+        }
+    }
+    
     private func saveScores() {
         do {
             let data = try JSONEncoder().encode(recentScores)
